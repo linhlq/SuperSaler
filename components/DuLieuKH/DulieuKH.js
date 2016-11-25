@@ -36,7 +36,7 @@ var navigationView = (
     </View>
   </View>
 )
-export default class Home extends Component {
+export default class DulieuKH extends Component {
   moMenu() {
     this.refs['DRAWER_REF'].openDrawer();
   };
