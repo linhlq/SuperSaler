@@ -144,16 +144,18 @@ export default class Data extends Component {
         <InfoBox title='Trạng thái:' content={this.state.customer.status} />
         <InfoBox title='Kết quả liên hệ' content={this.state.customer.result} />
 
-        <View style={{flexDirection:'row', justifyContent:'space-around', backgroundColor:'#ffffff'}}>
-          <TouchableOpacity  onPress={() => {this.backCustomer()}}>
-              <Text> BACK
+        <View style={{flexDirection:'row',paddingTop:5, justifyContent:'space-around', backgroundColor:'#ffffff'}}>
+          <TouchableOpacity style={{height:40, width:100, justifyContent:'center', alignItems:'center', backgroundColor:'#336600', borderRadius:5}} onPress={() => {this.backCustomer()}}>
+              <Text style={{fontWeight:'bold', color:'white'}}> BACK
               </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity  onPress={() => {this.nextCustomer()}}>
-              <Text> NEXT
+          <TouchableOpacity style={{height:40, width:100, justifyContent:'center', alignItems:'center', backgroundColor:'#336600', borderRadius:5}} onPress={() => {this.nextCustomer()}}>
+              <Text style={{fontWeight:'bold', color:'white'}}> NEXT
               </Text>
           </TouchableOpacity>
+        </View>
+        <View style={{height:20}}>
         </View>
       </ScrollView>
     );
