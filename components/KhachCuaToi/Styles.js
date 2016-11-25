@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   container:{
-    backgroundColor: '#e9eaed',    
+    backgroundColor: '#e9eaed',
   },
   rowTable:{
     borderRadius: 3,
@@ -110,6 +110,15 @@ const styles = StyleSheet.create({
     padding:10,
     paddingLeft:30
   },
+  firstRow:{
+    flex:3,
+    height:40,
+    borderWidth:0.5,
+    borderColor:'grey',
+    backgroundColor:'lightgreen',
+    borderTopLeftRadius: 3,
+    borderTopRightRadius: 2.5,
+  }
 });
 
 module.exports = styles

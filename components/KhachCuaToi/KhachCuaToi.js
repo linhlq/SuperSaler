@@ -139,13 +139,13 @@ export default class KhachCuaToi extends Component {
                   style={styles.container}>
                   <View
                     style={styles.rowTable}>
-                    <View style={{flex:3, height:40, borderWidth:0.5,borderColor:'grey'}}>
+                    <View style={[styles.firstRow,{flex:3}]}>
                       <Text style={[styles.text,{fontWeight:'bold'}]}>Tên</Text>
                     </View>
-                    <View style={{flex:3, height:40, borderWidth:0.5,borderColor:'grey'}}>
+                    <View style={[styles.firstRow,{flex:3}]}>
                       <Text style={[styles.text,{fontWeight:'bold'}]}>SDT</Text>
                     </View>
-                    <View style={{flex:2, height:40,borderWidth:0.5,borderColor:'grey'}}>
+                    <View style={[styles.firstRow,{flex:2}]}>
                       <Text style={[styles.text,{fontWeight:'bold'}]}>Tình trạng</Text>
                     </View>
                   </View>

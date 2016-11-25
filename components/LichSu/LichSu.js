@@ -13,7 +13,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import DrawerLayout from 'react-native-drawer-layout';
 import DatePicker from 'react-native-datepicker';
 import Data from '../DuLieuKH/Data.js';
-import styles from '../DuLieuKH/Styles.js';
+import styles from '../KhachCuaToi/Styles.js';
 
 import DulieuKH from '../DuLieuKH/DulieuKH.js';
 import KhachCuaToi from '../KhachCuaToi/KhachCuaToi.js';
@@ -29,16 +29,25 @@ var data = [
   {text: 'Tạo động lực', icon: 'book', key: 'TaoDongLuc'},
   {text: 'Checklist', icon: 'bar-chart', key: 'Checklist'},
 ];
+var data2 = [
+  {hoten: 'Test', sdt:'test', tinhtrang:'test'},
+  {hoten: 'Test', sdt:'test', tinhtrang:'test'},
+  {hoten: 'Test', sdt:'test', tinhtrang:'test'},
+
+];
 
 export default class LichSu extends Component {
     constructor(props, context) {
         super(props, context);
         var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+        var ds2 = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.state = {
           dataSource: ds.cloneWithRows(data),
+          dataSource2: ds2.cloneWithRows(data2),
           date: new Date()
         };
         this._renderRow = this._renderRow.bind(this);
+        this._renderRow2 = this._renderRow2.bind(this);
     }
 
     _renderRow(data) {
@@ -49,7 +58,22 @@ export default class LichSu extends Component {
         </TouchableOpacity>
       );
     }
-
+    _renderRow2(data2){
+      return(
+        <TouchableOpacity
+          style={styles.rowTable}>
+          <View style={{flex:3, height:40, borderWidth:0.5,borderColor:'grey'}}>
+            <Text style={styles.text}>{data2.hoten}</Text>
+          </View>
+          <View style={{flex:3, height:40, borderWidth:0.5,borderColor:'grey'}}>
+            <Text style={styles.text}>{data2.sdt}</Text>
+          </View>
+          <View style={{flex:2, height:40,borderWidth:0.5,borderColor:'grey'}}>
+            <Text style={styles.text}>{data2.tinhtrang}</Text>
+          </View>
+        </TouchableOpacity>
+      );
+    }
     changeScreen(_key) {
       switch (_key) {
         case 'DulieuKH':
@@ -110,7 +134,7 @@ export default class LichSu extends Component {
         </View>
          <View style={{ flex: 1, marginTop: 10}}>
            <DatePicker
-                style={{width: 200, marginTop: 20, alignSelf: 'center'}}
+                style={{width: 200, alignSelf: 'center'}}
                 date={this.state.date}
                 mode="datetime"
                 duration={300}
@@ -135,14 +159,27 @@ export default class LichSu extends Component {
                 }}
                 onDateChange={(date) => {this.setState({date: date})}}
             />
-            <View style={{ marginTop: 30, width: width - 30, alignSelf: 'center', backgroundColor: '#FAFAFA', borderRadius: 8, borderWidth: 1, borderColor: '#616161'}}>
-                <View style={{flex: 1, marginTop: 20, marginBottom: 20, height: 45, backgroundColor: '#FAFAFA', width: width - 80, alignSelf: 'center', justifyContent: 'center', alignItems: 'center', flexDirection: 'row'}}>
-                    <TouchableOpacity style={{flex: 1, height: 45, justifyContent: 'center', alignItems: 'center', backgroundColor: '#00BCD4'}}><Text>Ngày giờ</Text></TouchableOpacity>
-                    <TouchableOpacity style={{flex: 1, height: 45, justifyContent: 'center', alignItems: 'center', backgroundColor: '#BA68C8'}}><Text>Tên</Text></TouchableOpacity>
-                    <TouchableOpacity style={{flex: 1, height: 45, justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFCA28'}}><Text>SĐT</Text></TouchableOpacity>
-                    <TouchableOpacity style={{flex: 1, height: 45, justifyContent: 'center', alignItems: 'center', backgroundColor: '#FF8A65'}}><Text>Tình trạng</Text></TouchableOpacity>
+              <View
+                style={styles.container}>
+                <View
+                  style={styles.rowTable}>
+                  <View style={[styles.firstRow,{flex:3}]}>
+                    <Text style={[styles.text,{fontWeight:'bold'}]}>Tên</Text>
+                  </View>
+                  <View style={[styles.firstRow,{flex:3}]}>
+                    <Text style={[styles.text,{fontWeight:'bold'}]}>SDT</Text>
+                  </View>
+                  <View style={[styles.firstRow,{flex:2}]}>
+                    <Text style={[styles.text,{fontWeight:'bold'}]}>Tình trạng</Text>
+                  </View>
                 </View>
-            </View>
+                <View>
+                  <ListView
+                    dataSource={this.state.dataSource2}
+                    renderRow={(data2) => this._renderRow2(data2)}
+                  />
+                </View>
+              </View>
          </View>
         </DrawerLayout>
       </View>
