@@ -12,8 +12,7 @@ import {Actions} from 'react-native-router-flux';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 import DrawerLayout from 'react-native-drawer-layout';
-import Data from './Data.js';
-import styles from './Styles.js';
+import styles from '../DuLieuKH/Styles.js';
 
 import LichSu from '../LichSu/LichSu.js';
 import KhachCuaToi from '../KhachCuaToi/KhachCuaToi.js';
