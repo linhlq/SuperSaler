@@ -46,7 +46,7 @@ export default class LogIn extends Component {
         return (
             <View style={{ flex: 1, backgroundColor: '#81C784' }}>
                 <View style={{ flex: 2, justifyContent: 'flex-end', alignItems: 'center' }}>
-                    <Text style={{ color: '#455A64', fontSize: 33, fontWeight: 'bold' }}>Super Saler</Text>
+                    <Text style={{ color: 'white', fontSize: 33, fontWeight: 'bold' }}>Super Saler</Text>
                 </View>
                 <View style={{ flex: 2, justifyContent: 'flex-end', alignItems: 'center' }}>
                     <Image
@@ -70,9 +70,9 @@ export default class LogIn extends Component {
                         secureTextEntry={true}
                         placeholder="Enter password..."
                         />
-                    <TouchableOpacity style={{ marginTop: 100, height: 40, width: 100, borderWidth: 1, borderColor: '#757575', justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }}
+                    <TouchableOpacity style={{ borderRadius:10, marginTop: 100,backgroundColor:'white', height: 40, width: 100, borderWidth: 1, borderColor: '#757575', justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }}
                         onPress={() => { this._isLogIn() } }>
-                        <Text>Login</Text>
+                        <Text style={{fontWeight:'bold', color:'#336600'}}>Login</Text>
                     </TouchableOpacity>
                 </View>
             </View>
