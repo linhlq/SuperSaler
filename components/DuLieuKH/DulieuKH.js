@@ -4,7 +4,8 @@ import {
   Dimensions,
   TouchableOpacity,
   Text,
-  ListView
+  ListView,
+  AsyncStorage
 } from 'react-native';
 var {height, width} = Dimensions.get('window');
 import {Actions} from 'react-native-router-flux';
@@ -115,4 +116,5 @@ export default class DulieuKH extends Component {
       </View>
     );
   }
+
 }
