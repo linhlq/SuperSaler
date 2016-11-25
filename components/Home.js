@@ -16,6 +16,7 @@ import {
   ListView,
   TouchableOpacity
 } from 'react-native';
+import {Actions} from 'react-native-router-flux';
 
 import DulieuKH from './DuLieuKH/DulieuKH.js';
 import LichSu from './LichSu/LichSu.js';
@@ -25,12 +26,12 @@ import TaoDongLuc from './TaoDongLuc/TaoDongLuc.js';
 import Checklist from './Checklist/Checklist.js';
 
 var data = [
-  {title: "Dữ liệu khách hàng", color: "#C8E6C9", name: 'DulieuKH', component: DulieuKH, position: 0},
-  {title: "Lịch sử", color: "#A5D6A7", name: 'LichSu', component: LichSu, position: 1},
-  {title: "Khách của tôi", color: "#81C784", name: 'KhachCuaToi', component: KhachCuaToi, position: 2},
-  {title: "Tiến độ", color: "#4CAF50", name: 'TienDo', component: TienDo, position: 3},
-  {title: "Tạo động lực", color: "#388E3C", name: 'TaoDongLuc', component: TaoDongLuc, position: 4},
-  {title: "Checklist", color: "#2E7D32", name: 'Checklist', component: Checklist, position: 5},
+  {title: "Dữ liệu khách hàng", color: "#C8E6C9", key: 'DulieuKH'},
+  {title: "Lịch sử", color: "#A5D6A7", key: 'LichSu'},
+  {title: "Khách của tôi", color: "#81C784", key: 'KhachCuaToi'},
+  {title: "Tiến độ", color: "#4CAF50", key: 'TienDo'},
+  {title: "Tạo động lực", color: "#388E3C", key: 'TaoDongLuc'},
+  {title: "Checklist", color: "#2E7D32", key: 'Checklist'},
 ];
 
 export default class Home extends Component {
@@ -45,21 +46,33 @@ export default class Home extends Component {
 
   _renderRow(data) {
     return (
-      <TouchableOpacity onPress={() => {this.changeScreen(data.title, data.name, data.component, data.position)}} style={{justifyContent: 'center', alignItems: 'center', height: 90, backgroundColor: data.color}}>
+      <TouchableOpacity onPress={() => {this.changeScreen(data.key)}} style={{justifyContent: 'center', alignItems: 'center', height: 90, backgroundColor: data.color}}>
         <Text style={{fontWeight: 'bold', fontSize: 20}}>{data.title}</Text>
       </TouchableOpacity>
     );
   }
 
-  changeScreen(_title, _name, _component, _position) {
-    this.props.navigator.push({
-      name: _name,
-      component: _component,
-      props: {
-        position: _position,
-        title: _title,
-      }
-    });
+  changeScreen(_key) {
+    switch (_key) {
+      case 'DulieuKH':
+        Actions.DulieuKH()
+        break;
+      case 'LichSu':
+        Actions.LichSu()
+        break;
+      case 'KhachCuaToi':
+        Actions.KhachCuaToi()
+        break;
+      case 'TienDo':
+        Actions.TienDo()
+        break;
+      case 'TaoDongLuc':
+        Actions.TaoDongLuc()
+        break;
+      case 'Checklist':
+        Actions.Checklist()
+        break;
+    }
   }
 
   render() {

@@ -6,6 +6,8 @@ import {
   Text,
   ListView
 } from 'react-native';
+import {Actions} from 'react-native-router-flux';
+
 var {height, width} = Dimensions.get('window');
 import Icon from 'react-native-vector-icons/FontAwesome';
 import DrawerLayout from 'react-native-drawer-layout';
@@ -20,12 +22,12 @@ import TaoDongLuc from '../TaoDongLuc/TaoDongLuc.js';
 import Checklist from '../Checklist/Checklist.js';
 
 var data = [
-  {text: 'Dữ liệu khách hàng', icon: 'address-book', name: 'DulieuKH', component: DulieuKH, position: 0},
-  {text: 'Lịch sử', icon: 'history', name: 'LichSu', component: LichSu, position: 1},
-  {text: 'Khách của tôi', icon: 'money', name: 'KhachCuaToi', component: KhachCuaToi, position: 2},
-  {text: 'Tiến độ', icon: 'money', name: 'TienDo', component: TienDo, position: 3},
-  {text: 'Tạo động lực', icon: 'book', name: 'TaoDongLuc', component: TaoDongLuc, position: 4},
-  {text: 'Checklist', icon: 'bar-chart', name: 'Checklist', component: Checklist, position: 5},
+  {text: 'Dữ liệu khách hàng', icon: 'address-book', key: 'DulieuKH'},
+  {text: 'Lịch sử', icon: 'history', key: 'LichSu'},
+  {text: 'Khách của tôi', icon: 'money', key: 'KhachCuaToi'},
+  {text: 'Tiến độ', icon: 'money', key: 'TienDo'},
+  {text: 'Tạo động lực', icon: 'book', key: 'TaoDongLuc'},
+  {text: 'Checklist', icon: 'bar-chart', key: 'Checklist'},
 ];
 
 export default class LichSu extends Component {
@@ -41,33 +43,43 @@ export default class LichSu extends Component {
 
     _renderRow(data) {
       return (
-        <TouchableOpacity onPress={() => {this.changeScreen(data.name, data.component, data.position)}} style={styles.fistRowDrawer}>
+        <TouchableOpacity onPress={() => {this.changeScreen(data.key)}} style={styles.fistRowDrawer}>
           <Icon name={data.icon} size={18} color="black" />
           <Text style={styles.textDrawer}>{data.text}</Text>
         </TouchableOpacity>
       );
     }
 
-    changeScreen(_name, _component, _position) {
-      console.log(_name);
-      console.log(_component);
-      console.log(_position);
-      if (_position != this.props.passProps.position) {
-        this.props.navigator.push({
-          name: _name,
-          component: _component,
-          props: {
-            position: _position,
-          }
-        });
-      } else {
-        this.refs['DRAWER_REF'].closeDrawer();
+    changeScreen(_key) {
+      switch (_key) {
+        case 'DulieuKH':
+          Actions.DulieuKH()
+          break;
+        case 'LichSu':
+          this.dongMenu()
+          break;
+        case 'KhachCuaToi':
+          Actions.KhachCuaToi()
+          break;
+        case 'TienDo':
+          Actions.TienDo()
+          break;
+        case 'TaoDongLuc':
+          Actions.TaoDongLuc()
+          break;
+        case 'Checklist':
+          Actions.Checklist()
+          break;
       }
     }
 
   moMenu() {
     this.refs['DRAWER_REF'].openDrawer();
   };
+
+  dongMenu() {
+    this.refs['DRAWER_REF'].closeDrawer();
+  }
 
   render() {
     var navigationView = (

@@ -18,8 +18,9 @@ import {
     Navigator,
     Alert
 } from 'react-native';
+import {Actions} from 'react-native-router-flux';
 
-import home from './Home.js'
+import Home from './Home.js'
 export default class LogIn extends Component {
     constructor(props, context) {
         super(props, context);
@@ -38,10 +39,7 @@ export default class LogIn extends Component {
         // }else{
         //     Alert.alert('Wrong password!');
         // }
-        this.props.navigator.push({
-                 name: 'Home',
-                 component: home
-             });
+        Actions.home();
     }
 
     render() {
