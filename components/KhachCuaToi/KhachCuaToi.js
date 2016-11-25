@@ -37,9 +37,10 @@ export default class KhachCuaToi extends Component {
   constructor(props) {
     super(props);
     var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    var ds2 = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
       dataSource: ds.cloneWithRows(data),
-      dataSource2: ds.cloneWithRows(data2),
+      dataSource2: ds2.cloneWithRows(data2),
     };
     this._renderRow = this._renderRow.bind(this);
     this._renderRow2 = this._renderRow2.bind(this);
@@ -144,7 +145,7 @@ export default class KhachCuaToi extends Component {
                   </View>
                   <View>
                     <ListView
-                      dataSource={this.state.dataSource}
+                      dataSource={this.state.dataSource2}
                       renderRow={(data2) => this._renderRow2(data2)}
                     />
                   </View>
