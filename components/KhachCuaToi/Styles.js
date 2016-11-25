@@ -10,9 +10,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   container:{
-    backgroundColor: '#e9eaed',
-    flex: 1,
-    justifyContent:'flex-start'
+    backgroundColor: '#e9eaed',    
   },
   rowTable:{
     borderRadius: 3,

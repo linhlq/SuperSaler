@@ -4,45 +4,74 @@ import {
   Dimensions,
   TouchableOpacity,
   Text,
-  Scrollview
+  ListView
 } from 'react-native';
 var {height, width} = Dimensions.get('window');
 import Icon from 'react-native-vector-icons/FontAwesome';
 import DrawerLayout from 'react-native-drawer-layout';
 import Data from './Data.js';
 import styles from './Styles.js';
-var navigationView = (
-  <View style={styles.drawer}>
-    <View style={{flex:0.8, paddingTop:100}}>
-      <TouchableOpacity style={styles.fistRowDrawer}>
-        <Icon name="address-book" size={18} color="black" />
-        <Text style={styles.textDrawer}>DATABASE</Text>
+
+var data = [
+  {text: 'Dữ liệu khách hàng', icon: 'address-book', name: 'DulieuKH', component: DulieuKH, position: 0},
+  {text: 'Lịch sử', icon: 'history', name: 'DulieuKH', component: DulieuKH, position: 1},
+  {text: 'Khách của tôi', icon: 'money', name: 'DulieuKH', component: DulieuKH, position: 2},
+  {text: 'Lịch hẹn', icon: 'money', name: 'DulieuKH', component: DulieuKH, position: 3},
+  {text: 'Tiến độ', icon: 'money', name: 'DulieuKH', component: DulieuKH, position: 4},
+  {text: 'Ôn tập kiến thức', icon: 'book', name: 'DulieuKH', component: DulieuKH, position: 5},
+  {text: 'Tạo động lực', icon: 'book', name: 'DulieuKH', component: DulieuKH, position: 6},
+  {text: 'Báo cáo', icon: 'bar-chart', name: 'DulieuKH', component: DulieuKH, position: 7},
+];
+
+export default class DulieuKH extends Component {
+  constructor(props) {
+    super(props);
+    var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    this.state = {
+      dataSource: ds.cloneWithRows(data),
+    };
+    this._renderRow = this._renderRow.bind(this);
+  }
+
+  _renderRow(data) {
+    return (
+      <TouchableOpacity onPress={() => {this.changeScreen(data.name, data.component, data.position)}} style={styles.fistRowDrawer}>
+        <Icon name={data.icon} size={18} color="black" />
+        <Text style={styles.textDrawer}>{data.text}</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.rowDrawer}>
-        <Icon name="history" size={18} color="black" />
-        <Text style={styles.textDrawer}>LỊCH SỬ</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.rowDrawer}>
-        <Icon name="money" size={18} color="black" />
-        <Text style={styles.textDrawer}>KHÁCH CỦA TÔI</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.rowDrawer}>
-        <Icon name="book" size={18} color="black" />
-        <Text style={styles.textDrawer}>ÔN TẬP KIẾN THỨC</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.rowDrawer}>
-        <Icon name="bar-chart" size={18} color="black" />
-        <Text style={styles.textDrawer}>BÁO CÁO</Text>
-      </TouchableOpacity>
-    </View>
-  </View>
-)
-export default class KhachCuaToi extends Component {
+    );
+  }
+
+  changeScreen(_name, _component, _position) {
+    if (_position != this.props.passProps.position) {
+      this.props.navigator.push({
+        name: _name,
+        component: _component,
+        props: {
+          position: _position,
+        }
+      });
+    } else {
+      this.refs['DRAWER_REF'].closeDrawer();
+    }
+  }
+
   moMenu() {
     this.refs['DRAWER_REF'].openDrawer();
   };
 
   render() {
+    var navigationView = (
+      <View style={styles.drawer}>
+        <View style={{flex:0.8, paddingTop:100}}>
+          <ListView
+            dataSource={this.state.dataSource}
+            renderRow={(data) => this._renderRow(data)}
+          />
+        </View>
+      </View>
+    )
+
     return (
       <View style={{flex:1, backgroundColor:'green'}}>
         <DrawerLayout
@@ -55,7 +84,7 @@ export default class KhachCuaToi extends Component {
             <TouchableOpacity onPress={() => {this.moMenu()}} style={styles.iconMenu}>
               <Icon name="bars" size={20} color="white" />
             </TouchableOpacity>
-            <Text style={styles.textHeader}>Khách Của Tôi</Text>
+            <Text style={styles.textHeader}>Data</Text>
             <View></View>
         </View>
           <View style={styles.container}>
