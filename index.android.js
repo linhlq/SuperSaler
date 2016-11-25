@@ -23,6 +23,7 @@ import KhachCuaToi from './components/KhachCuaToi/KhachCuaToi.js';
 import TienDo from './components/TienDo/TienDo.js';
 import TaoDongLuc from './components/TaoDongLuc/TaoDongLuc.js';
 import Checklist from './components/Checklist/Checklist.js';
+import CustomerDetail from './components/CustomerDetail/CustomerDetail.js';
 
 const scenes = Actions.create(
   <Scene key="root">
@@ -34,6 +35,7 @@ const scenes = Actions.create(
     <Scene key="TienDo" component={TienDo} hideNavBar={true} title="Tiến độ"/>
     <Scene key="TaoDongLuc" component={TaoDongLuc} hideNavBar={true} title="Tạo động lực"/>
     <Scene key="Checklist" component={Checklist} hideNavBar={true} title="Checklist"/>
+    <Scene key="CustomerDetail" component={CustomerDetail} hideNavBar={true} title="CustomerDetail"/>
   </Scene>
 );
 

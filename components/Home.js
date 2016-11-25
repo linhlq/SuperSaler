@@ -46,7 +46,7 @@ export default class Home extends Component {
 
   _renderRow(data) {
     return (
-      <TouchableOpacity onPress={() => {this.changeScreen(data.key)}} style={{justifyContent: 'center', alignItems: 'center', height: 90, backgroundColor: data.color}}>
+      <TouchableOpacity onPress={() => {this.changeScreen(data.key)}} style={{justifyContent: 'center', alignItems: 'center', height: 110, backgroundColor: data.color}}>
         <Text style={{fontWeight: 'bold', fontSize: 20}}>{data.title}</Text>
       </TouchableOpacity>
     );
