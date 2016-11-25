@@ -10,7 +10,8 @@ import {
   StyleSheet,
   Text,
   View,
-  Navigator
+  Navigator,
+  AsyncStorage
 } from 'react-native';
 import {Scene, Router, Actions} from 'react-native-router-flux';
 
@@ -36,7 +37,24 @@ const scenes = Actions.create(
   </Scene>
 );
 
+var data = [
+  {code: 'C1', name: 'Nguyen Van A', birthday: '01/10/1995', address: 'Cau Giay', phone: '0987654321', employee: 'Khanh', status: 'Da lien he', result: 'OK'},
+  {code: 'C2', name: 'Tran Van B', birthday: '01/10/1995', address: 'Cau Giay', phone: '0987654321', employee: 'Khanh', status: 'Da lien he', result: 'OK'},
+  {code: 'C3', name: 'Le Van C', birthday: '01/10/1995', address: 'Cau Giay', phone: '0987654321', employee: 'Khanh', status: 'Da lien he', result: 'OK'},
+  {code: 'C4', name: 'Ta Thi D', birthday: '01/10/1995', address: 'Cau Giay', phone: '0987654321', employee: 'Khanh', status: 'Da lien he', result: 'OK'},
+  {code: 'C5', name: 'Tong Van E', birthday: '01/10/1995', address: 'Cau Giay', phone: '0987654321', employee: 'Khanh', status: 'Da lien he', result: 'OK'},
+]
+
+
 export default class SuperSaler extends Component {
+  componentWillMount() {
+    AsyncStorage.setItem("cus1", JSON.stringify(data[0]));
+    AsyncStorage.setItem("cus2", JSON.stringify(data[1]));
+    AsyncStorage.setItem("cus3", JSON.stringify(data[2]));
+    AsyncStorage.setItem("cus4", JSON.stringify(data[3]));
+    AsyncStorage.setItem("cus5", JSON.stringify(data[4]));
+  }
+
   render() {
     return <Router scenes={scenes}/>
   }
