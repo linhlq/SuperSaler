@@ -93,12 +93,12 @@ export default class History extends Component {
                 }}
                 onDateChange={(date) => {this.setState({date: date})}}
             />
-            <View style={{ marginTop: 30, width: width - 30, alignSelf: 'center', backgroundColor: '#69F0AE', borderRadius: 8}}>
+            <View style={{ marginTop: 30, width: width - 30, alignSelf: 'center', backgroundColor: '#FAFAFA', borderRadius: 8, borderWidth: 1, borderColor: '#616161'}}>
                 <View style={{flex: 1, marginTop: 20, marginBottom: 20, height: 45, backgroundColor: '#FAFAFA', width: width - 80, alignSelf: 'center', justifyContent: 'center', alignItems: 'center', flexDirection: 'row'}}>
-                    <View style={{flex: 1, height: 45, justifyContent: 'center', alignItems: 'center', backgroundColor: '#00BCD4'}}><Text>Ngày giờ</Text></View>
-                    <View style={{flex: 1, height: 45, justifyContent: 'center', alignItems: 'center', backgroundColor: '#BA68C8'}}><Text>Tên</Text></View>
-                    <View style={{flex: 1, height: 45, justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFCA28'}}><Text>SĐT</Text></View>
-                    <View style={{flex: 1, height: 45, justifyContent: 'center', alignItems: 'center', backgroundColor: '#FF8A65'}}><Text>Tình trạng</Text></View>
+                    <TouchableOpacity style={{flex: 1, height: 45, justifyContent: 'center', alignItems: 'center', backgroundColor: '#00BCD4'}}><Text>Ngày giờ</Text></TouchableOpacity>
+                    <TouchableOpacity style={{flex: 1, height: 45, justifyContent: 'center', alignItems: 'center', backgroundColor: '#BA68C8'}}><Text>Tên</Text></TouchableOpacity>
+                    <TouchableOpacity style={{flex: 1, height: 45, justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFCA28'}}><Text>SĐT</Text></TouchableOpacity>
+                    <TouchableOpacity style={{flex: 1, height: 45, justifyContent: 'center', alignItems: 'center', backgroundColor: '#FF8A65'}}><Text>Tình trạng</Text></TouchableOpacity>
                 </View>
             </View>
          </View>
