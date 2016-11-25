@@ -133,7 +133,7 @@ export default class LichSu extends Component {
             <TouchableOpacity onPress={() => {this.moMenu()}} style={styles.iconMenu}>
               <Icon name="bars" size={20} color="white" />
             </TouchableOpacity>
-            <Text style={styles.textHeader}>History</Text>
+            <Text style={styles.textHeader}>{this.props.title}</Text>
             <View></View>
         </View>
          <View style={{ flex: 1, marginTop: 10}}>
