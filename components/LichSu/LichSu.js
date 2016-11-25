@@ -21,6 +21,7 @@ import TienDo from '../TienDo/TienDo.js';
 import TaoDongLuc from '../TaoDongLuc/TaoDongLuc.js';
 import Checklist from '../Checklist/Checklist.js';
 
+var moment = require('moment');
 var data = [
   {text: 'Dữ liệu khách hàng', icon: 'address-book', key: 'DulieuKH'},
   {text: 'Lịch sử', icon: 'history', key: 'LichSu'},
@@ -143,7 +144,7 @@ export default class LichSu extends Component {
                 duration={300}
                 placeholder="select date"
                 format="YYYY-MM-DD"
-                minDate="2016-05-01"
+                minDate= {moment().subtract(365, 'days').toDate()}
                 maxDate= {this.state.date}
                 confirmBtnText="Confirm"
                 cancelBtnText="Cancel"
