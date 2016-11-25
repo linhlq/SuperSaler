@@ -13,13 +13,13 @@ import {
   Navigator
 } from 'react-native';
 
-import Home from './components/Home.js';
+import LogIn from './components/LogIn.js';
 
 export default class SuperSaler extends Component {
   render() {
     return (
       <Navigator
-        initialRoute = {{name:'Home', component: Home}}
+        initialRoute = {{name:'LogIn', component: LogIn}}
         renderScene= {(route, navigator) => {
           if (route.component){
             return React.createElement(route.component, {navigator, passProps: route.props});
