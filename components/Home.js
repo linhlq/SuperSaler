@@ -18,18 +18,19 @@ import {
 } from 'react-native';
 
 import DulieuKH from './DuLieuKH/DulieuKH.js';
-import History from './History.js';
+import LichSu from './LichSu/LichSu.js';
 import KhachCuaToi from './KhachCuaToi/KhachCuaToi.js';
+import TienDo from './TienDo/TienDo.js';
+import TaoDongLuc from './TaoDongLuc/TaoDongLuc.js';
+import Checklist from './Checklist/Checklist.js';
 
 var data = [
   {title: "Dữ liệu khách hàng", color: "#C8E6C9", name: 'DulieuKH', component: DulieuKH, position: 0},
-  {title: "Lịch sử", color: "#A5D6A7", name: 'History', component: History, position: 1},
+  {title: "Lịch sử", color: "#A5D6A7", name: 'LichSu', component: LichSu, position: 1},
   {title: "Khách của tôi", color: "#81C784", name: 'KhachCuaToi', component: KhachCuaToi, position: 2},
-  {title: "Lịch hẹn", color: "#66BB6A", name: 'DulieuKH', component: DulieuKH, position: 3},
-  {title: "Tiến độ", color: "#4CAF50", name: 'DulieuKH', component: DulieuKH, position: 4},
-  {title: "Ôn tập kiến thức", color: "#43A047", name: 'DulieuKH', component: DulieuKH, position: 5},
-  {title: "Tạo động lực", color: "#388E3C", name: 'DulieuKH', component: DulieuKH, position: 6},
-  {title: "Báo cáo", color: "#2E7D32", name: 'DulieuKH', component: DulieuKH, position: 7},
+  {title: "Tiến độ", color: "#4CAF50", name: 'TienDo', component: TienDo, position: 3},
+  {title: "Tạo động lực", color: "#388E3C", name: 'TaoDongLuc', component: TaoDongLuc, position: 4},
+  {title: "Checklist", color: "#2E7D32", name: 'Checklist', component: Checklist, position: 5},
 ];
 
 export default class Home extends Component {

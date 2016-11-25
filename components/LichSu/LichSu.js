@@ -10,40 +10,59 @@ var {height, width} = Dimensions.get('window');
 import Icon from 'react-native-vector-icons/FontAwesome';
 import DrawerLayout from 'react-native-drawer-layout';
 import DatePicker from 'react-native-datepicker';
-import Data from './DuLieuKH/Data.js';
-import styles from './DuLieuKH/Styles.js';
-var navigationView = (
-  <View style={styles.drawer}>
-    <View style={{flex:0.8, paddingTop:100}}>
-      <TouchableOpacity style={styles.fistRowDrawer}>
-        <Icon name="address-book" size={18} color="black" />
-        <Text style={styles.textDrawer}>DATABASE</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.rowDrawer}>
-        <Icon name="history" size={18} color="black" />
-        <Text style={styles.textDrawer}>LỊCH SỬ</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.rowDrawer}>
-        <Icon name="money" size={18} color="black" />
-        <Text style={styles.textDrawer}>KHÁCH CỦA TÔI</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.rowDrawer}>
-        <Icon name="book" size={18} color="black" />
-        <Text style={styles.textDrawer}>ÔN TẬP KIẾN THỨC</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.rowDrawer}>
-        <Icon name="bar-chart" size={18} color="black" />
-        <Text style={styles.textDrawer}>BÁO CÁO</Text>
-      </TouchableOpacity>
-    </View>
-  </View>
-)
-export default class History extends Component {
+import Data from '../DuLieuKH/Data.js';
+import styles from '../DuLieuKH/Styles.js';
+
+import DulieuKH from '../DuLieuKH/DulieuKH.js';
+import KhachCuaToi from '../KhachCuaToi/KhachCuaToi.js';
+import TienDo from '../TienDo/TienDo.js';
+import TaoDongLuc from '../TaoDongLuc/TaoDongLuc.js';
+import Checklist from '../Checklist/Checklist.js';
+
+var data = [
+  {text: 'Dữ liệu khách hàng', icon: 'address-book', name: 'DulieuKH', component: DulieuKH, position: 0},
+  {text: 'Lịch sử', icon: 'history', name: 'LichSu', component: LichSu, position: 1},
+  {text: 'Khách của tôi', icon: 'money', name: 'KhachCuaToi', component: KhachCuaToi, position: 2},
+  {text: 'Tiến độ', icon: 'money', name: 'TienDo', component: TienDo, position: 3},
+  {text: 'Tạo động lực', icon: 'book', name: 'TaoDongLuc', component: TaoDongLuc, position: 4},
+  {text: 'Checklist', icon: 'bar-chart', name: 'Checklist', component: Checklist, position: 5},
+];
+
+export default class LichSu extends Component {
     constructor(props, context) {
         super(props, context);
+        var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.state = {
-            date: new Date()
-        }
+          dataSource: ds.cloneWithRows(data),
+          date: new Date()
+        };
+        this._renderRow = this._renderRow.bind(this);
+    }
+
+    _renderRow(data) {
+      return (
+        <TouchableOpacity onPress={() => {this.changeScreen(data.name, data.component, data.position)}} style={styles.fistRowDrawer}>
+          <Icon name={data.icon} size={18} color="black" />
+          <Text style={styles.textDrawer}>{data.text}</Text>
+        </TouchableOpacity>
+      );
+    }
+
+    changeScreen(_name, _component, _position) {
+      console.log(_name);
+      console.log(_component);
+      console.log(_position);
+      if (_position != this.props.passProps.position) {
+        this.props.navigator.push({
+          name: _name,
+          component: _component,
+          props: {
+            position: _position,
+          }
+        });
+      } else {
+        this.refs['DRAWER_REF'].closeDrawer();
+      }
     }
 
   moMenu() {
@@ -51,6 +70,17 @@ export default class History extends Component {
   };
 
   render() {
+    var navigationView = (
+      <View style={styles.drawer}>
+        <View style={{flex:0.8, paddingTop:100}}>
+          <ListView
+            dataSource={this.state.dataSource}
+            renderRow={(data) => this._renderRow(data)}
+          />
+        </View>
+      </View>
+    )
+
     return (
       <View style={{flex:1, backgroundColor:'#FAFAFA'}}>
         <DrawerLayout

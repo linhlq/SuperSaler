@@ -7,20 +7,25 @@ import {
   ListView
 } from 'react-native';
 var {height, width} = Dimensions.get('window');
+
 import Icon from 'react-native-vector-icons/FontAwesome';
 import DrawerLayout from 'react-native-drawer-layout';
 import Data from './Data.js';
 import styles from './Styles.js';
 
+import LichSu from '../LichSu/LichSu.js';
+import KhachCuaToi from '../KhachCuaToi/KhachCuaToi.js';
+import TienDo from '../TienDo/TienDo.js';
+import TaoDongLuc from '../TaoDongLuc/TaoDongLuc.js';
+import Checklist from '../Checklist/Checklist.js';
+
 var data = [
   {text: 'Dữ liệu khách hàng', icon: 'address-book', name: 'DulieuKH', component: DulieuKH, position: 0},
-  {text: 'Lịch sử', icon: 'history', name: 'DulieuKH', component: DulieuKH, position: 1},
-  {text: 'Khách của tôi', icon: 'money', name: 'DulieuKH', component: DulieuKH, position: 2},
-  {text: 'Lịch hẹn', icon: 'money', name: 'DulieuKH', component: DulieuKH, position: 3},
-  {text: 'Tiến độ', icon: 'money', name: 'DulieuKH', component: DulieuKH, position: 4},
-  {text: 'Ôn tập kiến thức', icon: 'book', name: 'DulieuKH', component: DulieuKH, position: 5},
-  {text: 'Tạo động lực', icon: 'book', name: 'DulieuKH', component: DulieuKH, position: 6},
-  {text: 'Báo cáo', icon: 'bar-chart', name: 'DulieuKH', component: DulieuKH, position: 7},
+  {text: 'Lịch sử', icon: 'history', name: 'LichSu', component: LichSu, position: 1},
+  {text: 'Khách của tôi', icon: 'money', name: 'KhachCuaToi', component: KhachCuaToi, position: 2},
+  {text: 'Tiến độ', icon: 'money', name: 'TienDo', component: TienDo, position: 3},
+  {text: 'Tạo động lực', icon: 'book', name: 'TaoDongLuc', component: TaoDongLuc, position: 4},
+  {text: 'Checklist', icon: 'bar-chart', name: 'Checklist', component: Checklist, position: 5},
 ];
 
 export default class DulieuKH extends Component {
