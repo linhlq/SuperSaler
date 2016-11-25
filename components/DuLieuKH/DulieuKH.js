@@ -3,45 +3,58 @@ import {
   View,
   Dimensions,
   TouchableOpacity,
-  Text
+  Text,
+  ListView
 } from 'react-native';
 var {height, width} = Dimensions.get('window');
 import Icon from 'react-native-vector-icons/FontAwesome';
 import DrawerLayout from 'react-native-drawer-layout';
 import Data from './Data.js';
 import styles from './Styles.js';
-var navigationView = (
-  <View style={styles.drawer}>
-    <View style={{flex:0.8, paddingTop:100}}>
-      <TouchableOpacity style={styles.fistRowDrawer}>
-        <Icon name="address-book" size={18} color="black" />
-        <Text style={styles.textDrawer}>DATABASE</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.rowDrawer}>
-        <Icon name="history" size={18} color="black" />
-        <Text style={styles.textDrawer}>LỊCH SỬ</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.rowDrawer}>
-        <Icon name="money" size={18} color="black" />
-        <Text style={styles.textDrawer}>KHÁCH CỦA TÔI</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.rowDrawer}>
-        <Icon name="book" size={18} color="black" />
-        <Text style={styles.textDrawer}>ÔN TẬP KIẾN THỨC</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.rowDrawer}>
-        <Icon name="bar-chart" size={18} color="black" />
-        <Text style={styles.textDrawer}>BÁO CÁO</Text>
-      </TouchableOpacity>
-    </View>
-  </View>
-)
+
+var data = [
+  {text: 'DATABASE', icon: 'address-book'},
+  {text: 'LỊCH SỬ', icon: 'history'},
+  {text: 'KHÁCH CỦA TÔI', icon: 'money'},
+  {text: 'ÔN TẬP KIẾN THỨC', icon: 'book'},
+  {text: 'BÁO CÁO', icon: 'bar-chart'},
+];
+
 export default class DulieuKH extends Component {
+  constructor(props) {
+    super(props);
+    var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    this.state = {
+      dataSource: ds.cloneWithRows(data),
+    };
+    this._renderRow = this._renderRow.bind(this);
+  }
+
+  _renderRow(data) {
+    return (
+      <TouchableOpacity style={styles.fistRowDrawer}>
+        <Icon name={data.icon} size={18} color="black" />
+        <Text style={styles.textDrawer}>{data.text}</Text>
+      </TouchableOpacity>
+    );
+  }
+
   moMenu() {
     this.refs['DRAWER_REF'].openDrawer();
   };
 
   render() {
+    var navigationView = (
+      <View style={styles.drawer}>
+        <View style={{flex:0.8, paddingTop:100}}>
+          <ListView
+            dataSource={this.state.dataSource}
+            renderRow={(data) => this._renderRow(data)}
+          />
+        </View>
+      </View>
+    )
+
     return (
       <View style={{flex:1, backgroundColor:'green'}}>
         <DrawerLayout
