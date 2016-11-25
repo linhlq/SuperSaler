@@ -9,21 +9,34 @@ import {
     StyleSheet,
     Text,
     View,
-    Navigator,
     DrawerLayoutAndroid,
     ScrollView,
     ListView,
     TouchableOpacity,
     Image,
-    TextInput
+    TextInput,
+    Navigator,
+    Alert
 } from 'react-native';
 
+import home from './Home.js'
 export default class LogIn extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
             user: '',
             pass: ''
+        }
+    }
+
+    _isLogIn() {
+        if (this.state.user == 'supersaler' && this.state.pass == '123456') {
+            this.props.navigator.push({
+                name: 'Home',
+                component: home
+            });
+        }else{
+            Alert.alert('Wrong password!');
         }
     }
 
@@ -55,13 +68,14 @@ export default class LogIn extends Component {
                         secureTextEntry={true}
                         placeholder="Enter password..."
                         />
-                    <TouchableOpacity style={{ marginTop: 100, height: 40, width: 100, borderWidth: 1, borderColor: '#757575', justifyContent: 'center', alignItems: 'center', alignSelf: 'center'}}>
+                    <TouchableOpacity style={{ marginTop: 100, height: 40, width: 100, borderWidth: 1, borderColor: '#757575', justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }}
+                        onPress={() => { this._isLogIn() } }>
                         <Text>Login</Text>
                     </TouchableOpacity>
                 </View>
-        </View>
-      );
-  }
+            </View>
+        );
+    }
 }
 
 module.exports = LogIn;
