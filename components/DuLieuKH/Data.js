@@ -8,7 +8,7 @@ import {
   TextInput,
   Button,
   Alert,
-  Scrollview,
+  ScrollView,
   ListView,
   Navigator
 } from 'react-native';
@@ -24,7 +24,7 @@ export default class Data extends Component {
   }
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView>
         <InfoBox title='Mã:' content='makh' />
         <InfoBox title='Họ và tên:' content='hoten' />
         <InfoBox title='Ngay sinh:' content='ngaysinh' />
@@ -82,7 +82,7 @@ export default class Data extends Component {
               </Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }

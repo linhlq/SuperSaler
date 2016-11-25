@@ -4,7 +4,8 @@ import {
   Dimensions,
   TouchableOpacity,
   Text,
-  ListView
+  ListView,
+  ScrollView
 } from 'react-native';
 var {height, width} = Dimensions.get('window');
 import {Actions} from 'react-native-router-flux';
@@ -28,9 +29,10 @@ var data = [
   {text: 'Checklist', icon: 'bar-chart', key: 'Checklist'},
 ];
 var data2 = [
-  {hoten: 'Test', sdt:'test', tintrang:'test'},
-  {hoten: 'Test', sdt:'test', tintrang:'test'},
-  {hoten: 'Test', sdt:'test', tintrang:'test'},
+  {hoten: 'Test', sdt:'test', tinhtrang:'test'},
+  {hoten: 'Test', sdt:'test', tinhtrang:'test'},
+  {hoten: 'Test', sdt:'test', tinhtrang:'test'},
+
 ];
 
 export default class KhachCuaToi extends Component {
@@ -58,13 +60,13 @@ export default class KhachCuaToi extends Component {
     return(
       <TouchableOpacity
         style={styles.rowTable}>
-        <View style={{flex:3, height:40, borderRightWidth:0.5,borderColor:'grey'}}>
+        <View style={{flex:3, height:40, borderWidth:0.5,borderColor:'grey'}}>
           <Text style={styles.text}>{data2.hoten}</Text>
         </View>
-        <View style={{flex:3, height:40, borderRightWidth:0.5,borderColor:'grey'}}>
+        <View style={{flex:3, height:40, borderWidth:0.5,borderColor:'grey'}}>
           <Text style={styles.text}>{data2.sdt}</Text>
         </View>
-        <View style={{flex:2, height:40,borderRightWidth:0.5,borderColor:'grey'}}>
+        <View style={{flex:2, height:40,borderWidth:0.5,borderColor:'grey'}}>
           <Text style={styles.text}>{data2.tinhtrang}</Text>
         </View>
       </TouchableOpacity>
@@ -127,20 +129,24 @@ export default class KhachCuaToi extends Component {
             <Text style={styles.textHeader}>{this.props.title}</Text>
             <View></View>
         </View>
-          <View style={styles.container}>
+          <ScrollView>
+            <View>
+              <Text>Search Bar Here!!
+              </Text>
+            </View>
             <View style={styles.body}>
                 <View
                   style={styles.container}>
                   <View
                     style={styles.rowTable}>
-                    <View style={{flex:3, height:40, borderRightWidth:0.5,borderColor:'grey'}}>
-                      <Text style={styles.text}>Tên</Text>
+                    <View style={{flex:3, height:40, borderWidth:0.5,borderColor:'grey'}}>
+                      <Text style={[styles.text,{fontWeight:'bold'}]}>Tên</Text>
                     </View>
-                    <View style={{flex:3, height:40, borderRightWidth:0.5,borderColor:'grey'}}>
-                      <Text style={styles.text}>SDT</Text>
+                    <View style={{flex:3, height:40, borderWidth:0.5,borderColor:'grey'}}>
+                      <Text style={[styles.text,{fontWeight:'bold'}]}>SDT</Text>
                     </View>
-                    <View style={{flex:2, height:40,borderRightWidth:0.5,borderColor:'grey'}}>
-                      <Text style={styles.text}>Tình trạng</Text>
+                    <View style={{flex:2, height:40,borderWidth:0.5,borderColor:'grey'}}>
+                      <Text style={[styles.text,{fontWeight:'bold'}]}>Tình trạng</Text>
                     </View>
                   </View>
                   <View>
@@ -151,7 +157,7 @@ export default class KhachCuaToi extends Component {
                   </View>
                 </View>
             </View>
-          </View>
+          </ScrollView>
         </DrawerLayout>
       </View>
     );
