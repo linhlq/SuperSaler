@@ -13,11 +13,14 @@ import Data from './Data.js';
 import styles from './Styles.js';
 
 var data = [
-  {text: 'DATABASE', icon: 'address-book'},
-  {text: 'LỊCH SỬ', icon: 'history'},
-  {text: 'KHÁCH CỦA TÔI', icon: 'money'},
-  {text: 'ÔN TẬP KIẾN THỨC', icon: 'book'},
-  {text: 'BÁO CÁO', icon: 'bar-chart'},
+  {text: 'Dữ liệu khách hàng', icon: 'address-book', name: 'DulieuKH', component: DulieuKH, position: 0},
+  {text: 'Lịch sử', icon: 'history', name: 'DulieuKH', component: DulieuKH, position: 1},
+  {text: 'Khách của tôi', icon: 'money', name: 'DulieuKH', component: DulieuKH, position: 2},
+  {text: 'Lịch hẹn', icon: 'money', name: 'DulieuKH', component: DulieuKH, position: 3},
+  {text: 'Tiến độ', icon: 'money', name: 'DulieuKH', component: DulieuKH, position: 4},
+  {text: 'Ôn tập kiến thức', icon: 'book', name: 'DulieuKH', component: DulieuKH, position: 5},
+  {text: 'Tạo động lực', icon: 'book', name: 'DulieuKH', component: DulieuKH, position: 6},
+  {text: 'Báo cáo', icon: 'bar-chart', name: 'DulieuKH', component: DulieuKH, position: 7},
 ];
 
 export default class DulieuKH extends Component {
@@ -32,11 +35,25 @@ export default class DulieuKH extends Component {
 
   _renderRow(data) {
     return (
-      <TouchableOpacity style={styles.fistRowDrawer}>
+      <TouchableOpacity onPress={() => {this.changeScreen(data.name, data.component, data.position)}} style={styles.fistRowDrawer}>
         <Icon name={data.icon} size={18} color="black" />
         <Text style={styles.textDrawer}>{data.text}</Text>
       </TouchableOpacity>
     );
+  }
+
+  changeScreen(_name, _component, _position) {
+    if (_position != this.props.passProps.position) {
+      this.props.navigator.push({
+        name: _name,
+        component: _component,
+        props: {
+          position: _position,
+        }
+      });
+    } else {
+      this.refs['DRAWER_REF'].closeDrawer();
+    }
   }
 
   moMenu() {
