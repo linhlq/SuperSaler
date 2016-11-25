@@ -30,9 +30,9 @@ var data = [
   {text: 'Checklist', icon: 'bar-chart', key: 'Checklist'},
 ];
 var data2 = [
-  {hoten: 'Test', sdt:'test', tinhtrang:'test'},
-  {hoten: 'Test', sdt:'test', tinhtrang:'test'},
-  {hoten: 'Test', sdt:'test', tinhtrang:'test'},
+  {time:'test', hoten: 'Test', sdt:'test', tinhtrang:'test'},
+  {time:'test', hoten: 'Test', sdt:'test', tinhtrang:'test'},
+  {time:'test', hoten: 'Test', sdt:'test', tinhtrang:'test'},
 
 ];
 
@@ -62,6 +62,9 @@ export default class LichSu extends Component {
       return(
         <TouchableOpacity
           style={styles.rowTable}>
+          <View style={{flex:2, height:40, borderWidth:0.5,borderColor:'grey'}}>
+            <Text style={styles.text}>{data2.time}</Text>
+          </View>
           <View style={{flex:3, height:40, borderWidth:0.5,borderColor:'grey'}}>
             <Text style={styles.text}>{data2.hoten}</Text>
           </View>
@@ -134,7 +137,7 @@ export default class LichSu extends Component {
         </View>
          <View style={{ flex: 1, marginTop: 10}}>
            <DatePicker
-                style={{width: 200, alignSelf: 'center'}}
+                style={{width: 200, marginBottom:10, alignSelf: 'center'}}
                 date={this.state.date}
                 mode="datetime"
                 duration={300}
@@ -163,6 +166,9 @@ export default class LichSu extends Component {
                 style={styles.container}>
                 <View
                   style={styles.rowTable}>
+                  <View style={[styles.firstRow,{flex:2}]}>
+                    <Text style={[styles.text,{fontWeight:'bold'}]}>Time</Text>
+                  </View>
                   <View style={[styles.firstRow,{flex:3}]}>
                     <Text style={[styles.text,{fontWeight:'bold'}]}>Tên</Text>
                   </View>

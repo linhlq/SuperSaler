@@ -14,7 +14,8 @@ import {
   Dimensions,
   ListView,
   TouchableOpacity,
-  Image
+  Image,
+  ScrollView
 } from 'react-native';
 var {height, width} = Dimensions.get('window');
 import {Actions} from 'react-native-router-flux';
@@ -95,7 +96,7 @@ export default class TaoDongLuc extends Component {
       </View>
     )
     return (
-      <View style={{flex:1, backgroundColor:'green'}}>
+      <View style={{flex:1, backgroundColor:'white'}}>
         <DrawerLayout
           ref={'DRAWER_REF'}
           drawerWidth={width*2/3}
@@ -109,12 +110,26 @@ export default class TaoDongLuc extends Component {
             <Text style={styles.textHeader}>{this.props.title}</Text>
             <View></View>
         </View>
-          <View style={styles.container}>
-            <View style={styles.body}>
-                <Image                  
+          <View>
+            <ScrollView style={{padding:5}}>
+                <Image
+                  resizeMode='contain'
+                  style={{height:width, width:width, borderWidth:5}}
                   source={require('../../img/quote2.png')}
                 />
-            </View>
+                <Image
+                  resizeMode='contain'
+                  style={{height:width, width:width, borderWidth:5}}
+                  source={require('../../img/quote1.png')}
+                />
+                <Image
+                  resizeMode='contain'
+                  style={{height:width, width:width, borderWidth:5}}
+                  source={require('../../img/quote2.png')}
+                />
+                <View style={{height:50}}>
+                </View>
+            </ScrollView>
           </View>
         </DrawerLayout>
       </View>
