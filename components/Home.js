@@ -18,11 +18,13 @@ import {
 } from 'react-native';
 
 import DulieuKH from './DuLieuKH/DulieuKH.js';
+import History from './History.js';
+import KhachCuaToi from './KhachCuaToi/KhachCuaToi.js';
 
 var data = [
   {title: "Dữ liệu khách hàng", color: "#C8E6C9", name: 'DulieuKH', component: DulieuKH, position: 0},
-  {title: "Lịch sử", color: "#A5D6A7", name: 'DulieuKH', component: DulieuKH, position: 1},
-  {title: "Khách của tôi", color: "#81C784", name: 'DulieuKH', component: DulieuKH, position: 2},
+  {title: "Lịch sử", color: "#A5D6A7", name: 'History', component: History, position: 1},
+  {title: "Khách của tôi", color: "#81C784", name: 'KhachCuaToi', component: KhachCuaToi, position: 2},
   {title: "Lịch hẹn", color: "#66BB6A", name: 'DulieuKH', component: DulieuKH, position: 3},
   {title: "Tiến độ", color: "#4CAF50", name: 'DulieuKH', component: DulieuKH, position: 4},
   {title: "Ôn tập kiến thức", color: "#43A047", name: 'DulieuKH', component: DulieuKH, position: 5},
@@ -42,18 +44,19 @@ export default class Home extends Component {
 
   _renderRow(data) {
     return (
-      <TouchableOpacity onPress={() => {this.changeScreen(data.name, data.component, data.position)}} style={{justifyContent: 'center', alignItems: 'center', height: 90, backgroundColor: data.color}}>
+      <TouchableOpacity onPress={() => {this.changeScreen(data.title, data.name, data.component, data.position)}} style={{justifyContent: 'center', alignItems: 'center', height: 90, backgroundColor: data.color}}>
         <Text style={{fontWeight: 'bold', fontSize: 20}}>{data.title}</Text>
       </TouchableOpacity>
     );
   }
 
-  changeScreen(_name, _component, _position) {
+  changeScreen(_title, _name, _component, _position) {
     this.props.navigator.push({
       name: _name,
       component: _component,
       props: {
         position: _position,
+        title: _title,
       }
     });
   }

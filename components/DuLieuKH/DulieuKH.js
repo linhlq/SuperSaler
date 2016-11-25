@@ -84,7 +84,7 @@ export default class DulieuKH extends Component {
             <TouchableOpacity onPress={() => {this.moMenu()}} style={styles.iconMenu}>
               <Icon name="bars" size={20} color="white" />
             </TouchableOpacity>
-            <Text style={styles.textHeader}>Data</Text>
+            <Text style={styles.textHeader}>{this.props.passProps.title}</Text>
             <View></View>
         </View>
           <View style={styles.container}>

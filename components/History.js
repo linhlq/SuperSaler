@@ -38,14 +38,14 @@ var navigationView = (
     </View>
   </View>
 )
-class History extends Component {
+export default class History extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
             date: new Date()
         }
     }
-    
+
   moMenu() {
     this.refs['DRAWER_REF'].openDrawer();
   };
@@ -107,5 +107,3 @@ class History extends Component {
     );
   }
 }
-
-module.exports = History;
