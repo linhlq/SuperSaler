@@ -43,8 +43,8 @@ export default class DulieuKH extends Component {
   _renderRow(data) {
     return (
       <TouchableOpacity onPress={() => {this.changeScreen(data.key)}} style={styles.fistRowDrawer}>
-        <Icon name={data.icon} size={18} color="black" />
-        <Text style={styles.textDrawer}>{data.text}</Text>
+        <Icon name={data.icon} size={18} color="#336600" />
+        <Text style={[styles.textDrawer,{color:'#336600'}]}>{data.text}</Text>
       </TouchableOpacity>
     );
   }
@@ -83,7 +83,8 @@ export default class DulieuKH extends Component {
   render() {
     var navigationView = (
       <View style={styles.drawer}>
-        <View style={{flex:0.8, paddingTop:100}}>
+        <View style={{flex:0.8}}>
+          
           <ListView
             dataSource={this.state.dataSource}
             renderRow={(data) => this._renderRow(data)}
