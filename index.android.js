@@ -41,10 +41,10 @@ const scenes = Actions.create(
 
 var data = [
   {code: 'C1', name: 'Nguyen Van A', birthday: '01/10/1995', address: 'Cau Giay', phone: '0987654321', employee: 'Khanh', status: 'Da lien he', result: 'OK'},
-  {code: 'C2', name: 'Tran Van B', birthday: '01/10/1995', address: 'Cau Giay', phone: '0987654321', employee: 'Khanh', status: 'Da lien he', result: 'OK'},
-  {code: 'C3', name: 'Le Van C', birthday: '01/10/1995', address: 'Cau Giay', phone: '0987654321', employee: 'Khanh', status: 'Da lien he', result: 'OK'},
-  {code: 'C4', name: 'Ta Thi D', birthday: '01/10/1995', address: 'Cau Giay', phone: '0987654321', employee: 'Khanh', status: 'Da lien he', result: 'OK'},
-  {code: 'C5', name: 'Tong Van E', birthday: '01/10/1995', address: 'Cau Giay', phone: '0987654321', employee: 'Khanh', status: 'Da lien he', result: 'OK'},
+  {code: 'C2', name: 'Tran Van B', birthday: '15/11/1986', address: 'Hai Ba Trung', phone: '01675875478', employee: 'Khanh', status: 'Chua lien he', result: 'OK'},
+  {code: 'C3', name: 'Le Van C', birthday: '14/02/1984', address: 'Thanh Xuan', phone: '0989325642', employee: 'Khanh', status: 'Tach roi', result: 'Fail'},
+  {code: 'C4', name: 'Ta Thi D', birthday: '13/03/1993', address: 'Tu Liem', phone: '0982759568', employee: 'Khanh', status: 'Dang ngam cuu', result: 'OK'},
+  {code: 'C5', name: 'Tong Van E', birthday: '30/02/1992', address: 'Sao Hoa', phone: '01668433512', employee: 'Khanh', status: 'Da lien he', result: 'OK'},
 ]
 
 

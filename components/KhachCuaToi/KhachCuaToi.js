@@ -29,9 +29,11 @@ var data = [
   {text: 'Checklist', icon: 'bar-chart', key: 'Checklist'},
 ];
 var data2 = [
-  {hoten: 'Test', sdt:'test', tinhtrang:'test'},
-  {hoten: 'Test', sdt:'test', tinhtrang:'test'},
-  {hoten: 'Test', sdt:'test', tinhtrang:'test'},
+  {hoten: 'Nguyen Van A', sdt:'0987654321', tinhtrang:'Da lien he', key: 'cus1'},
+  {hoten: 'Tran Van B', sdt:'01675875478', tinhtrang:'Chua lien he', key: 'cus2'},
+  {hoten: 'Le Van C', sdt:'0989325642', tinhtrang:'Tach roi', key: 'cus3'},
+  {hoten: 'Ta Thi D', sdt:'0982759568', tinhtrang:'Dang ngam cuu', key: 'cus4'},
+  {hoten: 'Tong Van E', sdt:'01668433512', tinhtrang:'Da lien he', key: 'cus5'},
 
 ];
 
@@ -56,9 +58,11 @@ export default class KhachCuaToi extends Component {
       </TouchableOpacity>
     );
   }
+
   _renderRow2(data2){
     return(
       <TouchableOpacity
+        onPress={() => {this.goToCustomerDetail(data.key)}}
         style={styles.rowTable}>
         <View style={{flex:3, height:40, borderWidth:0.5,borderColor:'grey'}}>
           <Text style={styles.text}>{data2.hoten}</Text>
@@ -72,6 +76,13 @@ export default class KhachCuaToi extends Component {
       </TouchableOpacity>
     );
   }
+
+  goToCustomerDetail(_key) {
+    Actions.CustomerDetail({
+      keyCus: _key,
+    })
+  }
+
   changeScreen(_key) {
     switch (_key) {
       case 'DulieuKH':

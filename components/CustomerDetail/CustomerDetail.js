@@ -13,6 +13,7 @@ import {Actions} from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import DrawerLayout from 'react-native-drawer-layout';
 import styles from '../DuLieuKH/Styles.js';
+import InfoBox from '../DuLieuKH/InfoBox.js';
 
 import LichSu from '../LichSu/LichSu.js';
 import KhachCuaToi from '../KhachCuaToi/KhachCuaToi.js';
@@ -37,6 +38,7 @@ export default class CustomerDetail extends Component {
     var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
       dataSource: ds.cloneWithRows(data),
+      customer: ''
     };
     this._renderRow = this._renderRow.bind(this);
   }
@@ -121,5 +123,26 @@ export default class CustomerDetail extends Component {
         </View>
       </View>
     );
+  }
+
+  componentDidMount() {
+    this._loadInitialState().done();
+  }
+
+  _loadInitialState = async () => {
+    try {
+      var value = await AsyncStorage.getItem("cus1");
+      if (value !== null){
+        var customer = JSON.parse(value);
+        this.setState({
+          customer: customer,
+        });
+
+      } else {
+
+      }
+    } catch (error) {
+
+    }
   }
 }
