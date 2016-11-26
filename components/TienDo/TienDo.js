@@ -143,11 +143,11 @@ export default class TienDo extends Component {
               <TouchableOpacity style={{ flex: 1, height: 45, justifyContent: 'center', alignItems: 'center', borderColor: '#455A64', borderWidth: 1, marginRight: 20}}><Text>Tháng</Text></TouchableOpacity>
               <TouchableOpacity style={{ flex: 1, height: 45, justifyContent: 'center', alignItems: 'center', borderColor: '#455A64', borderWidth: 1, marginRight: 20}}><Text>Năm</Text></TouchableOpacity>
             </View>
-            <View style={{flex: 1,marginTop: 10, borderWidth: 1, borderColor: '#455A64', flex: 9, margin: 15}}>
+            <View style={{marginTop: 10, borderWidth: 1, borderColor: '#455A64', flex: 9, margin: 15}}>
               <View style={{marginRight: 15, marginLeft: 15, marginTop: 15, alignSelf: 'flex-start', alignItems: 'flex-start', height: 40, justifyContent: 'center'}}><Text>Tổng số cuộc gọi</Text></View>
               <View style={{height: 50, flexDirection: 'row', marginLeft: 15, marginRight: 15, marginTop: 5, borderWidth: 1, borderColor: '#455A64'}}>
-                <View style={{ flex: 1.3, marginLeft: 10, marginRight: 10, alignSelf: 'center'}}><Text>15/30</Text></View>
-                <View style={{ flex: 8.7, marginLeft: 35, alignSelf: 'center'}}>
+                <View style={{ marginLeft: 10, marginRight: 10, alignSelf: 'center'}}><Text>15/30</Text></View>
+                <View style={{ marginLeft: 35, marginRight: 10,  alignSelf: 'center'}}>
                    <Progress.Bar style={{alignSelf: 'center' }} 
                     progress={0.5} 
                     width={220} 
@@ -158,11 +158,11 @@ export default class TienDo extends Component {
                 </View>
               </View>
             </View>
-            <View style={{flex: 1,marginTop: 10, borderWidth: 1, borderColor: '#455A64', flex: 9, margin: 15}}>
+            <View style={{marginTop: 10, borderWidth: 1, borderColor: '#455A64', flex: 9, margin: 15}}>
               <View style={{marginRight: 15, marginLeft: 15, marginTop: 15, alignSelf: 'flex-start', alignItems: 'flex-start', height: 40, justifyContent: 'center'}}><Text>Tổng số đặt hẹn</Text></View>
               <View style={{height: 50, flexDirection: 'row', marginLeft: 15, marginRight: 15, marginTop: 5, borderWidth: 1, borderColor: '#455A64'}}>
-                <View style={{ flex: 1.3, marginLeft: 10, marginRight: 10, alignSelf: 'center'}}><Text>20/30</Text></View>
-                <View style={{ flex: 8.7, marginLeft: 35, alignSelf: 'center'}}>
+                <View style={{ marginLeft: 10, marginRight: 10, alignSelf: 'center'}}><Text>20/30</Text></View>
+                <View style={{ marginLeft: 35, marginRight: 10, alignSelf: 'center'}}>
                    <Progress.Bar style={{alignSelf: 'center' }} 
                     progress={0.6} 
                     width={220} 
@@ -173,11 +173,11 @@ export default class TienDo extends Component {
                 </View>
               </View>
             </View>
-            <View style={{flex: 1, marginTop: 10, borderWidth: 1, borderColor: '#455A64', flex: 9, margin: 15}}>
+            <View style={{marginTop: 10, borderWidth: 1, borderColor: '#455A64', flex: 9, margin: 15}}>
               <View style={{marginRight: 15, marginLeft: 15, marginTop: 15, alignSelf: 'flex-start', alignItems: 'flex-start', height: 40, justifyContent: 'center'}}><Text>Tổng số mua hàng</Text></View>
               <View style={{height: 50, flexDirection: 'row', marginLeft: 15, marginRight: 15, marginTop: 5, borderWidth: 1, borderColor: '#455A64'}}>
-                <View style={{ flex: 1.3, marginLeft: 10, marginRight: 10, alignSelf: 'center'}}><Text>30/30</Text></View>
-                <View style={{ flex: 8.7, marginLeft: 35, alignSelf: 'center'}}>
+                <View style={{ marginLeft: 10, marginRight: 10, alignSelf: 'center'}}><Text>30/30</Text></View>
+                <View style={{ marginLeft: 35 , marginRight: 10, alignSelf: 'center'}}>
                    <Progress.Bar style={{alignSelf: 'center' }} 
                     progress={1} 
                     width={220} 
