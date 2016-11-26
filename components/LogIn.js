@@ -31,15 +31,11 @@ export default class LogIn extends Component {
     }
 
     _isLogIn() {
-        // if (this.state.user == 'supersaler' && this.state.pass == '123456') {
-        //     this.props.navigator.push({
-        //         name: 'Home',
-        //         component: home
-        //     });
-        // }else{
-        //     Alert.alert('Wrong password!');
-        // }
-        Actions.home();
+        if (this.state.user == 'supersaler' && this.state.pass == '123456') {
+            Actions.home();
+        } else {
+            Alert.alert('Wrong password!');
+        }
     }
 
     render() {
