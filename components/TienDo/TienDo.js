@@ -4,7 +4,8 @@ import {
   Dimensions,
   TouchableOpacity,
   Text,
-  ListView
+  ListView,
+  Image
 } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 
@@ -55,8 +56,8 @@ export default class TienDo extends Component {
     _renderRow(data) {
       return (
         <TouchableOpacity onPress={() => {this.changeScreen(data.key)}} style={styles.fistRowDrawer}>
-          <Icon name={data.icon} size={18} color="black" />
-          <Text style={styles.textDrawer}>{data.text}</Text>
+          <Icon name={data.icon} size={18} color="#336600" />
+          <Text style={[styles.textDrawer,{color:'#336600'}]}>{data.text}</Text>
         </TouchableOpacity>
       );
     }
@@ -113,7 +114,8 @@ export default class TienDo extends Component {
   render() {
     var navigationView = (
       <View style={styles.drawer}>
-        <View style={{flex:0.8, paddingTop:100}}>
+        <View style={{flex:0.8}}>
+          <Image style={{width:width*2/3, height:100}} source={require('../../img/logo-drawer.png')}/>
           <ListView
             dataSource={this.state.dataSource}
             renderRow={(data) => this._renderRow(data)}
@@ -148,11 +150,11 @@ export default class TienDo extends Component {
               <View style={{height: 50, flexDirection: 'row', marginLeft: 15, marginRight: 15, marginTop: 5, borderWidth: 1, borderColor: '#455A64'}}>
                 <View style={{ marginLeft: 10, marginRight: 10, alignSelf: 'center'}}><Text>15/30</Text></View>
                 <View style={{ marginLeft: 35, marginRight: 10,  alignSelf: 'center'}}>
-                   <Progress.Bar style={{alignSelf: 'center' }} 
-                    progress={0.5} 
-                    width={200} 
-                    height={10} 
-                    indeterminate={false} 
+                   <Progress.Bar style={{alignSelf: 'center' }}
+                    progress={0.5}
+                    width={200}
+                    height={10}
+                    indeterminate={false}
                     borderWidth={1}
                     unfilledColor={'#EEEEEE'}/>
                 </View>
@@ -163,11 +165,11 @@ export default class TienDo extends Component {
               <View style={{height: 50, flexDirection: 'row', marginLeft: 15, marginRight: 15, marginTop: 5, borderWidth: 1, borderColor: '#455A64'}}>
                 <View style={{ marginLeft: 10, marginRight: 10, alignSelf: 'center'}}><Text>20/30</Text></View>
                 <View style={{ marginLeft: 35, marginRight: 10, alignSelf: 'center'}}>
-                   <Progress.Bar style={{alignSelf: 'center' }} 
-                    progress={0.6} 
-                    width={200} 
-                    height={10} 
-                    indeterminate={false} 
+                   <Progress.Bar style={{alignSelf: 'center' }}
+                    progress={0.6}
+                    width={200}
+                    height={10}
+                    indeterminate={false}
                     borderWidth={1}
                     unfilledColor={'#EEEEEE'}/>
                 </View>
@@ -178,11 +180,11 @@ export default class TienDo extends Component {
               <View style={{height: 50, flexDirection: 'row', marginLeft: 15, marginRight: 15, marginTop: 5, borderWidth: 1, borderColor: '#455A64'}}>
                 <View style={{ marginLeft: 10, marginRight: 10, alignSelf: 'center'}}><Text>30/30</Text></View>
                 <View style={{ marginLeft: 35 , marginRight: 10, alignSelf: 'center'}}>
-                   <Progress.Bar style={{alignSelf: 'center' }} 
-                    progress={1} 
-                    width={200} 
-                    height={10} 
-                    indeterminate={false} 
+                   <Progress.Bar style={{alignSelf: 'center' }}
+                    progress={1}
+                    width={200}
+                    height={10}
+                    indeterminate={false}
                     borderWidth={1}
                     unfilledColor={'#EEEEEE'}/>
                 </View>

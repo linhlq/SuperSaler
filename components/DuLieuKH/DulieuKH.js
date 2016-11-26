@@ -5,7 +5,8 @@ import {
   TouchableOpacity,
   Text,
   ListView,
-  AsyncStorage
+  AsyncStorage,
+  Image
 } from 'react-native';
 var {height, width} = Dimensions.get('window');
 import {Actions} from 'react-native-router-flux';
@@ -84,7 +85,7 @@ export default class DulieuKH extends Component {
     var navigationView = (
       <View style={styles.drawer}>
         <View style={{flex:0.8}}>
-          
+          <Image style={{width:width*2/3, height:100}} source={require('../../img/logo-drawer.png')}/>
           <ListView
             dataSource={this.state.dataSource}
             renderRow={(data) => this._renderRow(data)}
