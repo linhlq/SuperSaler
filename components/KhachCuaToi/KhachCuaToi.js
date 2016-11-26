@@ -5,9 +5,11 @@ import {
   TouchableOpacity,
   Text,
   ListView,
-  ScrollView
+  ScrollView,
+  TextInput
 } from 'react-native';
 var {height, width} = Dimensions.get('window');
+var Width = Dimensions.get('window').width;
 import {Actions} from 'react-native-router-flux';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -45,6 +47,7 @@ export default class KhachCuaToi extends Component {
     this.state = {
       dataSource: ds.cloneWithRows(data),
       dataSource2: ds2.cloneWithRows(data2),
+      search: ''
     };
     this._renderRow = this._renderRow.bind(this);
     this._renderRow2 = this._renderRow2.bind(this);
@@ -141,9 +144,13 @@ export default class KhachCuaToi extends Component {
             <View></View>
         </View>
           <ScrollView>
-            <View>
-              <Text>Search Bar Here!!
-              </Text>
+            <View style={{margin: 10}}>
+              <TextInput
+                style={{height: 40, width: Width - 20, borderColor: 'gray', borderWidth: 1, margin: 15, borderRadius: 8, alignSelf: 'center'}}
+                onChangeText={(text) => this.setState({search: text})}
+                value={this.state.search}
+                placeholder="Search..."
+              />
             </View>
             <View style={styles.body}>
                 <View
