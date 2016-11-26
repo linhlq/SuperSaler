@@ -150,7 +150,7 @@ export default class TienDo extends Component {
                 <View style={{ marginLeft: 35, marginRight: 10,  alignSelf: 'center'}}>
                    <Progress.Bar style={{alignSelf: 'center' }} 
                     progress={0.5} 
-                    width={220} 
+                    width={200} 
                     height={10} 
                     indeterminate={false} 
                     borderWidth={1}
@@ -165,7 +165,7 @@ export default class TienDo extends Component {
                 <View style={{ marginLeft: 35, marginRight: 10, alignSelf: 'center'}}>
                    <Progress.Bar style={{alignSelf: 'center' }} 
                     progress={0.6} 
-                    width={220} 
+                    width={200} 
                     height={10} 
                     indeterminate={false} 
                     borderWidth={1}
@@ -180,7 +180,7 @@ export default class TienDo extends Component {
                 <View style={{ marginLeft: 35 , marginRight: 10, alignSelf: 'center'}}>
                    <Progress.Bar style={{alignSelf: 'center' }} 
                     progress={1} 
-                    width={220} 
+                    width={200} 
                     height={10} 
                     indeterminate={false} 
                     borderWidth={1}
