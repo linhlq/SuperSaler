@@ -32,10 +32,9 @@ var data = [
   {text: 'Checklist', icon: 'bar-chart', key: 'Checklist'},
 ];
 var data2 = [
-  {time:'test', hoten: 'Test', sdt:'test', tinhtrang:'test'},
-  {time:'test', hoten: 'Test', sdt:'test', tinhtrang:'test'},
-  {time:'test', hoten: 'Test', sdt:'test', tinhtrang:'test'},
-
+  {time: '13:48', hoten: 'Tran Van B', sdt:'01675875478', tinhtrang:'Chua lien he', key: 'cus2'},
+  {time: '14:27', hoten: 'Le Van C', sdt:'0989325642', tinhtrang:'Tach roi', key: 'cus3'},
+  {time: '21:00', hoten: 'Ta Thi D', sdt:'0982759568', tinhtrang:'Dang ngam cuu', key: 'cus4'},
 ];
 
 export default class LichSu extends Component {
@@ -60,9 +59,11 @@ export default class LichSu extends Component {
         </TouchableOpacity>
       );
     }
+    
     _renderRow2(data2){
       return(
         <TouchableOpacity
+          onPress={() => {this.goToCustomerDetail(data.key)}}
           style={styles.rowTable}>
           <View style={{flex:2, height:40, borderWidth:0.5,borderColor:'grey'}}>
             <Text style={styles.text}>{data2.time}</Text>
@@ -79,6 +80,13 @@ export default class LichSu extends Component {
         </TouchableOpacity>
       );
     }
+
+    goToCustomerDetail(_key) {
+      Actions.CustomerDetail({
+        keyCus: _key,
+      })
+    }
+
     changeScreen(_key) {
       switch (_key) {
         case 'DulieuKH':
